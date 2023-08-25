@@ -67,6 +67,10 @@ export let IconBtn = styled.button`
     color: ${theme._F0FBFF};
     width: 50px;
     height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background: none;
     border: none;
     border-radius: 100%;
