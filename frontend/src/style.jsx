@@ -147,3 +147,8 @@ export let ButtonSlder = styled.button`
 export let Spacer = styled.span`
     flex: 1 1 auto;
 `
+export let Home = styled.div`
+    background-color: ${theme._F6FDFF};
+    width: 100%;
+    height: 100%;
+`
