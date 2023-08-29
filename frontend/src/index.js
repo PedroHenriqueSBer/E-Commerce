@@ -5,6 +5,7 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import App from './App'
 import Header from './components/Header/Header';
 import Home from './components/Home/Home'
+import NewProduto from './components/NewProduto/NewProduto'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,7 +15,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route index element={
                     <>
                         <Header/>
-                        <Home />
+                        <NewProduto />
+                    </>
+                }/>
+                <Route path="New/Product" element={
+                    <>
+                        <Header/>
+                        <NewProduto />
                     </>
                 }/>
             </Route>

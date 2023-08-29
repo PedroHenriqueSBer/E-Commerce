@@ -1,11 +1,14 @@
 import styled from 'styled-components'
+import imgBckgrnd from './imgs/bkgrnd.png'
 
 export let theme = {
     _031419:'#031419',
     _082933:'#082933',
     _053C4C:'#053C4C',
+    _f6fdff3e:'#f6fdff3e',
     _F6FDFF:'#F6FDFF',
     _f0fbff30:'#f0fbff30',
+    _585858dd:'#585858dd',
     _F0FBFF:'#F0FBFF',
     _E1EAED:'#E1EAED',
     _C9D2D6:'#C9D2D6',
@@ -155,6 +158,107 @@ export let Home = styled.div`
     background-color: ${theme._F6FDFF};
     width: 100%;
     height: 100%;
+`
+export let Nproduto = styled.div`
+    background-image: url(${imgBckgrnd});
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    & .space{
+        padding-top: 20px;
+    }
+    & form{
+        display: flex;
+        box-shadow: 5px 5px 25px #000;
+        border-radius: 5px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        padding-bottom: 30px;
+        padding-top: 30px;
+        width: 70%;
+        margin-top: 30px;
+        background-color: ${theme._f6fdff3e};
+        backdrop-filter: blur(10px);
+        font-family: ${Fonts.Kavoon};
+        row-gap: 10px;
+        & h1{
+            color: ${theme._F6FDFF};
+            padding: 0;
+            margin: 0;
+        }
+        & .inptArea{
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            & input,textarea{
+                background-color: ${theme._F6FDFF};
+                color: ${theme._545C60};
+                font-family: ${Fonts.Kavoon};
+                font-size: 18px;
+                padding-left: 20px;
+                width: 100%;
+                height: 40px;
+                border: none;
+                &.max{
+                    width: 200%;
+                }
+                &:focus{
+                    outline: 0;
+                }
+                &::placeholder{
+                    color: ${theme._545C60};
+                    font-family: ${Fonts.Kavoon};
+                    font-size: 18px;
+                }
+            }
+            textarea{
+                padding-top: 10px;
+                height: 400px;
+            }
+            & .inptFile{
+                height: 350px;
+                padding: 0;
+                background-color: ${theme._F6FDFF};
+                & h2{
+                    color: ${theme._585858dd};
+                    font-family: ${Fonts.Kavoon};
+                    font-size: 18px;
+                    margin: 0;
+                    margin-top: 10px;
+                    margin-left: 20px;
+                }
+                & input{
+                    padding: 0;
+                    margin-top: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0%;
+                }
+                &#MoreSend{
+                    width: 100%;
+                }
+                &#imgCard{
+                    width: 500px;
+                }
+                &#imgBackground{
+                    width: 100%;
+                }
+            }
+        }
+    }
 `
 export let Sidebar = styled.div`
     height: calc(100% - 70px);

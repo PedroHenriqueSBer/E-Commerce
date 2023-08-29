@@ -21,6 +21,7 @@ import { MenuOutlined,
     ShoppingCartOutlined 
 } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 let btnSlideBar = (icone,title,theme,func,primary=false) =>
     <ButtonSlder theme={theme} onClick={func} primary={primary}>
@@ -32,7 +33,8 @@ let btnSlideBar = (icone,title,theme,func,primary=false) =>
         </div>
     </ButtonSlder>
 export default _ =>{
-    const [open, setOpen] = useState(true);
+    const navigate = useNavigate()
+    const [open, setOpen] = useState(false);
     const showDrawer = () => {
       setOpen(true);
     };
@@ -81,7 +83,7 @@ export default _ =>{
                     {btnSlideBar(<LaptopOutlined/>,'Laptop',Theme)}
                     {btnSlideBar(<GlobalOutlined/>,'Endereço',Theme)}
                     {btnSlideBar(<DashboardOutlined />,'Dashboard',Theme)}
-                    {btnSlideBar(<AppstoreAddOutlined />,'Criar produto',Theme)}
+                    {btnSlideBar(<AppstoreAddOutlined />,'Criar produto',Theme,() => navigate('/New/Product'))}
                     {btnSlideBar(<GroupOutlined />,'Administração',Theme)}
                 </div>
                 <div className="footer">
