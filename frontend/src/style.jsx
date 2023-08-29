@@ -9,6 +9,7 @@ export let theme = {
     _F0FBFF:'#F0FBFF',
     _E1EAED:'#E1EAED',
     _C9D2D6:'#C9D2D6',
+    _585858:'#585858'
 }
 
 export let Fonts = {
@@ -16,9 +17,11 @@ export let Fonts = {
 }
 export let Header = styled.div`
     background-color: ${theme._031419};
-    width: calc() 100%;
     padding-left: 10px;
+    width: 100%;
     padding-right: 10px;
+    position: fixed;
+    z-index: 100;
     height: 70px;
     display: flex;
     gap: 10px;
@@ -91,10 +94,11 @@ export let GapArea = styled.div`
     row-gap: ${props => props.gap};
 `
 export let ButtonSlder = styled.button`
-    width: 94%;
+    width: 90%;
     height: 50px;
     border-radius: 5px;
     padding: 0;
+    z-index: 10000;
     border: none;
     display: flex;
     flex-direction: row;
@@ -152,3 +156,46 @@ export let Home = styled.div`
     width: 100%;
     height: 100%;
 `
+export let Sidebar = styled.div`
+    height: calc(100% - 70px);
+    top: 70px;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: ${props => props.open? '100%':'1px'};
+    z-index: 1000;
+    opacity: ${props => props.open? '100%':'0%'};
+    transition: 300ms;
+    & nav{
+        background-color: ${props => props.theme? theme._F6FDFF : theme._585858};
+        width: ${props => props.open? '300px':'1px'};
+        padding-top: 20px;
+        height: calc(100% - 20px);
+        & div{
+            width: 100%;
+            display: flex;
+            row-gap: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            &.header{
+                height: 10%;
+            }
+            &.body{
+                height: 60%;
+            }
+            &.footer{
+                height: 30%;
+            }
+        }
+    }
+    & button#close{
+        border: none;
+        height: 100%;
+        background-color: ${theme._031419};
+        opacity: 20%;
+        width: ${props => props.open? 'calc(100% - 300px)':'1px'};
+
+    }
+`;

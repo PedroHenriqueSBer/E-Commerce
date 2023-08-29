@@ -4,6 +4,7 @@ import {
     Spacer,
     ButtonSlder,
     IconBtn,
+    Sidebar,
     theme
 } from "../../style"
 import { MenuOutlined,
@@ -17,10 +18,9 @@ import { MenuOutlined,
     ShoppingCartOutlined 
 } from '@ant-design/icons';
 import React, { useState } from 'react';
-import { Drawer } from 'antd';
 
-let btnSlideBar = (icone,title) =>
-    <ButtonSlder primary={false}>
+let btnSlideBar = (icone,title,theme,func,primary=false) =>
+    <ButtonSlder theme={theme} onClick={func} primary={primary}>
         <div id="icon">
             {icone}
         </div>
@@ -29,13 +29,21 @@ let btnSlideBar = (icone,title) =>
         </div>
     </ButtonSlder>
 export default _ =>{
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const showDrawer = () => {
       setOpen(true);
     };
     const onClose = () => {
       setOpen(false);
     };
+    const [Theme, setTheme] = useState(() =>{
+        console.log(localStorage.getItem('theme'))
+        return localStorage.getItem('theme')
+    })
+    let switchTheme = () =>{
+        setTheme(!Theme)
+        localStorage.setItem('theme',!Theme)
+    }
     return<>
         <Header>
             <IconBtn onClick={showDrawer}>
@@ -59,38 +67,32 @@ export default _ =>{
                 <UserOutlined />
             </IconBtn>
         </Header>
-        <Drawer title={
-            <ButtonSlder primary={true}>
-                <div id="icon">
-                    <UserOutlined /> 
+        <Sidebar theme={Theme} open={open}>
+            <nav>
+                <div className="header">
+                    {btnSlideBar(<UserOutlined/>,'Pedro',Theme,null, true)}
                 </div>
-                <div id="text">
-                    <h1>Nome do usuário</h1> 
-                    <span>Cliente</span>
+                <div className="body">
+                    {btnSlideBar(<SettingOutlined/>,'Configuração',Theme)}
+                    {btnSlideBar(<ShoppingCartOutlined/>,'Carrinho',Theme)}
+                    {btnSlideBar(<LaptopOutlined/>,'Laptop',Theme)}
+                    {btnSlideBar(<GlobalOutlined/>,'Endereço',Theme)}
                 </div>
-            </ButtonSlder>
-        } 
-        footer={
-            <GapArea gap='5px' height='100%'>
-                {
-                    [
-                        btnSlideBar(<BulbOutlined />,'Thema: claro'),
-                        btnSlideBar(<TransactionOutlined />,'Linguagem: ptbr'),
-                    ]
-                }
-            </GapArea>
-        }
-        placement="left" onClose={onClose} open={open}>
-            <GapArea gap='10px' height='100%'>
-                {
-                    [
-                        btnSlideBar(<SettingOutlined />,'Configuração'),
-                        btnSlideBar(<ShoppingCartOutlined />,'Carrinho'),
-                        btnSlideBar(<LaptopOutlined />,'Produtos'),
-                        btnSlideBar(<GlobalOutlined />,'Endereços'),
-                    ]
-                }
-            </GapArea>
-        </Drawer>
+                <div className="footer">
+                    {btnSlideBar(<BulbOutlined/>,`Thema: ${Theme? 'claro':'escuro'}`,Theme,switchTheme)}
+                    {btnSlideBar(<TransactionOutlined/>,'Linguagem: PTBR',Theme)}
+                </div>
+            </nav>
+            <button id="close" onClick={onClose}></button>
+        </Sidebar>
     </>
 }
+
+// SettingOutlined,
+// TransactionOutlined,
+// BulbOutlined,
+// GlobalOutlined,
+// SearchOutlined,
+// LaptopOutlined,
+// UserOutlined,
+// ShoppingCartOutlined 
