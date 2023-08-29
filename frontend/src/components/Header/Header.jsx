@@ -13,8 +13,11 @@ import { MenuOutlined,
     BulbOutlined,
     GlobalOutlined,
     SearchOutlined,
+    DashboardOutlined,
     LaptopOutlined,
     UserOutlined,
+    GroupOutlined,
+    AppstoreAddOutlined,
     ShoppingCartOutlined 
 } from '@ant-design/icons';
 import React, { useState } from 'react';
@@ -77,6 +80,9 @@ export default _ =>{
                     {btnSlideBar(<ShoppingCartOutlined/>,'Carrinho',Theme)}
                     {btnSlideBar(<LaptopOutlined/>,'Laptop',Theme)}
                     {btnSlideBar(<GlobalOutlined/>,'Endereço',Theme)}
+                    {btnSlideBar(<DashboardOutlined />,'Dashboard',Theme)}
+                    {btnSlideBar(<AppstoreAddOutlined />,'Criar produto',Theme)}
+                    {btnSlideBar(<GroupOutlined />,'Administração',Theme)}
                 </div>
                 <div className="footer">
                     {btnSlideBar(<BulbOutlined/>,`Thema: ${Theme? 'claro':'escuro'}`,Theme,switchTheme)}

@@ -183,10 +183,10 @@ export let Sidebar = styled.div`
                 height: 10%;
             }
             &.body{
-                height: 60%;
+                height: 70%;
             }
             &.footer{
-                height: 30%;
+                height: 20%;
             }
         }
     }
