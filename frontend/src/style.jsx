@@ -203,6 +203,14 @@ export let Nproduto = styled.div`
             align-items: center;
             justify-content: center;
             gap: 10px;
+            & button{
+                width: calc(100% + 20px);
+                height: 40px;
+                background-color: ${theme._F6FDFF};
+                color: ${theme._545C60};
+                font-family: ${Fonts.Kavoon};
+                font-size: 18px;
+            }
             & input,textarea{
                 background-color: ${theme._F6FDFF};
                 color: ${theme._545C60};

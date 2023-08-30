@@ -35,6 +35,10 @@ export default _ =>
                     <input type="file" name="" id="" />
                 </div>
             </div>
+            <div className='inptArea'>
+                <button>Enviar</button>
+            </div>
+            
         </form>
         <div className='space'>
 

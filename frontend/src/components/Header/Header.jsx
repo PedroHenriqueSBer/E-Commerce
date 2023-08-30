@@ -22,6 +22,7 @@ import { MenuOutlined,
 } from '@ant-design/icons';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { apitst } from './../../service/BackEnd'
 
 let btnSlideBar = (icone,title,theme,func,primary=false) =>
     <ButtonSlder theme={theme} onClick={func} primary={primary}>
@@ -95,12 +96,3 @@ export default _ =>{
         </Sidebar>
     </>
 }
-
-// SettingOutlined,
-// TransactionOutlined,
-// BulbOutlined,
-// GlobalOutlined,
-// SearchOutlined,
-// LaptopOutlined,
-// UserOutlined,
-// ShoppingCartOutlined 
